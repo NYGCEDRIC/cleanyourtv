@@ -1,0 +1,66 @@
+# Sony BRAVIA 7 K-65XR70C (BRAVIA_AE2, MediaTek MT5897), North American firmware
+# Google TV 14 (API 34), build BRAVIA_AE2_NA-user 14 UKN4.250422.001 603100
+# Same firmware as examples/sony-bravia-ae2, applied in small batches on 15 November 2026 and checked
+# after a reboot. Kept by the owner: voice/Assistant, firmware updates. Off by choice: AirPlay, Chromecast,
+# the antenna tuner extras and four preloaded apps.
+#
+# Apply:   TV_HOST=<tv ip> tools/disable.sh examples/sony-bravia-7-k65xr70c/debloat.txt
+# Undo:    TV_HOST=<tv ip> tools/restore.sh examples/sony-bravia-7-k65xr70c/debloat.txt com.google.android.apps.tv.launcherx
+# Everything is DISABLED, not uninstalled. Comment out any line you want to keep.
+#
+# Network ADB on this set is Wireless debugging only: pair with `adb pair`, then run the tools through it with
+# TV_ADB_BINARY=$(command -v adb) and TV_HOST=<tv ip>:<connection port> (tools/native-adb.md); 5555 stays closed.
+# Before the setupwraith line: on this TV the saved Wi-Fi belonged to setupwraith (dumpsys wifi showed
+# cname=com.google.android.tungsten.setupwraith). Forget the network and join it again in Settings first, or
+# disabling it drops the TV off Wi-Fi. Re-joining can give the TV a new IP address.
+
+# batch 1: tracking / ads / recommendations
+tv.samba.ssm                                   # Samba TV (ACR viewing data)
+tv.samba.ssm.ui
+com.qterics.da.product                         # Qterics device agent
+com.sony.dtv.da.service
+com.sonyericsson.idd.agent                     # Sony usage data
+com.sony.dtv.usercontext
+com.sony.dtv.seeds.iot
+com.sony.dtv.promos
+com.sony.dtv.sonyselect
+com.sony.dtv.sonytab                           # Sony tab on the Google TV home
+com.google.android.feedback
+com.sony.dtv.sonybugreportsys
+com.sony.dtv.b2b.vendorprotocol                # broadcasts model/MAC/IP over SDDP
+android.autoinstalls.config.sony.bravia        # Play auto-install of partner apps
+
+# batch 2: demo / shop mode, help
+com.sony.dtv.demosupport
+com.sony.dtv.demosystemsupport
+com.sony.dtv.multiscreendemo
+com.sony.dtv.customersupport
+com.sony.dtv.smarthelp
+
+# batch 3: Sony extras, plus casting the owner doesn't use
+com.sony.dtv.calibrationmonitor
+com.sony.dtv.gestureapp
+com.sony.dtv.livingfit                         # default screensaver; launcher Clock replaces it
+com.sony.dtv.osat.music.toast
+com.sony.dtv.airplayapp                        # AirPlay (owner: not used)
+com.google.android.apps.mediashell             # Chromecast built-in (owner: not used)
+
+# batch 4: ATSC antenna tuner (owner: no antenna)
+# com.mediatek.dtv.tvinput.atsctuner   # kept: TV_INPUT_HARDWARE guard (HDMI can go black, #321)
+# com.sony.dtv.tvinput.atsc3tuner   # kept: TV_INPUT_HARDWARE guard (HDMI can go black, #321)
+com.sony.dtv.tvinput.atsc3tuner.drmlicenseinstaller
+com.sony.dtv.atscbrowserservice
+com.sony.dtv.broadcastclock.broadcastrequirementcontrol
+com.sony.dtv.broadcastclock.clocksyncservice
+com.sony.dtv.broadcastsettings
+com.sony.dtv.servicemode.tuner
+
+# batch 5: preloaded apps (owner kept none)
+com.crunchyroll.crunchyroid
+com.sonypicturescore                           # Sony Pictures Core
+com.google.android.videos                      # Google TV app; can come back enabled after Play updates
+com.google.android.play.games
+
+# batch 6: Home (Wi-Fi was re-joined first, so the network no longer belongs to setupwraith)
+com.google.android.tungsten.setupwraith        # its RecoveryActivity otherwise takes over Home
+# com.google.android.apps.tv.launcherx         # launcher/build-and-install.sh disables it after Home has moved

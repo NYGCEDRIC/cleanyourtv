@@ -1,0 +1,36 @@
+{
+  "dock_apps": [
+    "net.darkforeststudios.scorebox",
+    "com.myiptvonline.implayer",
+    "com.tcl.browser",
+    "com.google.android.youtube.tv",
+    "com.android.vending"
+  ],
+  "columns": 5,
+  "live_tv_package": "",
+  "app_keys": [
+    "scan:583:com.netflix.ninja",
+    "scan:485:com.google.android.youtube.tv",
+    "scan:490:com.amazon.amazonvideo.livingroom"
+  ],
+  "game_day": "io.github.justinnewman.gameday",
+  "weather": "io.github.sumyabazar1.weather",
+  "rows_below_dock": 1,
+  "background_color": "#05070C",
+  "wallpaper": true,
+  "wallpaper_rotation_minutes": 60,
+  "wallpaper_order": "sequential",
+  "wallpaper_captions": true,
+  "cinematic_home": false,
+  "dock_title": false,
+  "dock_glass": true,
+  "dock_opacity": 50,
+  "dock_even_padding": true,
+  "icon_only_buttons": true,
+  "icon_only_inputs": true,
+  "ambient_glow": false,
+  "app_glow": false,
+  "fade_rows": true,
+  "focus_overshoot": false,
+  "advanced_effects": true
+}

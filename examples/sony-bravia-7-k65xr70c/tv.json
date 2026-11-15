@@ -1,0 +1,6 @@
+{
+  "tv": "Sony BRAVIA 7 K-65XR70C (BRAVIA_AE2, MediaTek MT5897), North America",
+  "os": "Google TV 14",
+  "brand": "Sony",
+  "notes": "Same firmware as `sony-bravia-ae2/`, in six batches: Samba TV, Sony agents/promos, demo, help, AirPlay and Chromecast off by choice; two ATSC tuner inputs kept by the TV_INPUT_HARDWARE guard; setupwraith owned the saved Wi-Fi; Wireless debugging only; Settings/Netflix/YouTube/Prime buttons by scancode; weather line and Game Day soccer calendars"
+}

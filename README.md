@@ -1,3 +1,23 @@
+## This fork: Sony BRAVIA 7 setup, weather by the clock, soccer on Home
+
+This is a fork of **[CleanYourTV](https://github.com/Gathin23/cleanyourtv)** by [Gathin23](https://github.com/Gathin23)
+and its contributors (MIT licence). All the credit for the launcher, the tools and the add-ons goes to them; please
+star the original. Everything below the line is the original README. This fork adds:
+
+| What | Where |
+|---|---|
+| A tested list for the **Sony BRAVIA 7 K-65XR70C** (Google TV 14): 36 packages, the Home setup, remote buttons, before/after screenshots and the prompt it was run with | [`examples/sony-bravia-7-k65xr70c/`](examples/sony-bravia-7-k65xr70c/) |
+| **A weather line next to the clock** ("22° · Mostly sunny"): a `weather` key in the launcher, read from the Weather add-on. The launcher stays offline; the add-on fetches only while Home is on screen and its reading is over 30 minutes old | [`WeatherLine.java`](launcher/app/src/main/java/com/gathin/tvhome/WeatherLine.java), [`NowProvider.java`](addons/weather/app/src/main/java/io/github/sumyabazar1/weather/NowProvider.java), [`themes/README.md`](themes/README.md) |
+| **Game Day for big soccer**: Premier League, La Liga and Champions League calendars | [`calendars.conf`](examples/sony-bravia-7-k65xr70c/calendars.conf) |
+
+| Before | After |
+|---|---|
+| ![Stock Google TV home with a Sponsored banner](examples/sony-bravia-7-k65xr70c/before.jpg) | ![CleanYourTV with the weather line and Game Day](examples/sony-bravia-7-k65xr70c/after.jpg) |
+
+Fork it, or use the same steps on your own Android TV: start from [Quick start](#quick-start).
+
+---
+
 <p align="center">
   <a href="https://cleanyour.tv"><img src="https://raw.githubusercontent.com/Gathin23/cleanyourtv/main/docs/banner.png" alt="CleanYourTV. Your TV, minus the ads. Strip the bloatware from any Android TV or Google TV over Wi-Fi and replace the ad-filled home screen with a clean launcher that looks like an Apple TV. No root, no cable, nothing uninstalled, and a one-line restore." width="800"></a>
 </p>
