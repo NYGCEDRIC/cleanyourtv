@@ -79,4 +79,14 @@ public class ForecastTest {
         assertEquals(10, Forecast.mph(16));
         assertEquals(62, Forecast.mph(100));
     }
+
+    @Test
+    public void homeLineFetchesOnlyWhenOldAndNotJustTried() {
+        long now = 10 * Forecast.REFRESH_MS;
+        assertEquals(true, Forecast.stale(0, 0, now));                                        // never read
+        assertEquals(false, Forecast.stale(now - Forecast.REFRESH_MS + 1, 0, now));          // still fresh
+        assertEquals(true, Forecast.stale(now - Forecast.REFRESH_MS, 0, now));               // 30 min old
+        assertEquals(false, Forecast.stale(0, now - Forecast.RETRY_MS + 1, now));            // offline: tried just now
+        assertEquals(true, Forecast.stale(0, now - Forecast.RETRY_MS, now));                 // tried 5 min ago
+    }
 }

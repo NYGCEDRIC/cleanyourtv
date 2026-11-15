@@ -109,6 +109,14 @@ final class Forecast {
         return out;
     }
 
+    /**
+     * Whether Home's line (NowProvider) should fetch: the saved reading is older than {@link #REFRESH_MS} and the
+     * last try was over {@link #RETRY_MS} ago, so a TV that is offline doesn't ask on every Home.
+     */
+    static boolean stale(long updatedMs, long triedMs, long nowMs) {
+        return nowMs - updatedMs >= REFRESH_MS && nowMs - triedMs >= RETRY_MS;
+    }
+
     /** Days after today to show: the option, kept between {@link #MIN_DAYS} and {@link #MAX_DAYS}. */
     static int forecastDays(int wanted) {
         return Math.max(MIN_DAYS, Math.min(MAX_DAYS, wanted));

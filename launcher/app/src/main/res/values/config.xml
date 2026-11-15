@@ -485,6 +485,10 @@
          online. A theme can set "game_day". -->
     <string name="game_day" translatable="false"></string>
 
+    <!-- One weather line under the date ("72° · Sunny"): the package of an add-on that publishes it, such as
+         io.github.sumyabazar1.weather. The launcher only reads it and stays offline. A theme can set "weather". -->
+    <string name="weather" translatable="false"></string>
+
     <!-- Time-of-day backdrop behind everything: a dark gradient that follows the clock, with a warm
          horizon glow around sunrise and sunset. 0 keeps the plain background (the default); 1 to 100
          sets its opacity. Around 60 reads clearly without hiding a wallpaper. Can also be set with

@@ -116,6 +116,7 @@ public final class WeatherActivity extends Activity {
             main.post(() -> {
                 if (isDestroyed() || !resumed || request != requestId) return;
                 if (result != null) {
+                    NowProvider.save(this, result);   // Home's line follows the page, the city included
                     lastReport = result;
                     updatedAt = new Date();
                     show(result);
@@ -201,7 +202,7 @@ public final class WeatherActivity extends Activity {
                 getResources().getInteger(R.integer.forecast_days)));
         showHumidity = options.getBoolean("show_humidity", getResources().getBoolean(R.bool.show_humidity));
         showWind = options.getBoolean("show_wind", getResources().getBoolean(R.bool.show_wind));
-        fahrenheit = options.getBoolean("fahrenheit", "f".equalsIgnoreCase(getString(R.string.temperature_unit).trim()));
+        fahrenheit = NowProvider.fahrenheit(this);
         bothUnits = options.getBoolean("show_both_units", getResources().getBoolean(R.bool.show_both_units));
     }
 
